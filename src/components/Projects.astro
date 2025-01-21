@@ -1,18 +1,59 @@
 ---
 import GitHub from "./icons/GitHub.astro"
-import NextJS from "./icons/NextJS.astro"
-import Tailwind from "./icons/Tailwind.astro"
+import Spring from "./icons/Spring.astro"
+import Java from "./icons/Java.astro"
 import Link from "./icons/Link.astro"
+import Jwt from "./icons/Jwt.astro"
+import Docker from "./icons/Docker.astro"
+import Postgresql from "./icons/Postgresql.astro"
+import Angular from "./icons/Angular.astro"
+import Typescript from "./icons/Typescript.astro"
 import LinkButton from "./LinkButton.astro"
-
+import Html from "./icons/Html.astro"
+import Tailwind from "./icons/Tailwind.astro"
 const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
+  SPRING: {
+    name: "Spring",
+    class: "bg-[#003159] text-white",
+    icon: Spring,
+  },
+  JAVA: {
+    name: "Java",
+    class: "bg-[#003159] text-white",
+    icon: Java,
+  },
+  JWT: {
+    name: "JWT",
+    class: "bg-[#003159] text-white",
+    icon: Jwt,
+  },
+  DOCKER: {
+    name: "Docker",
+    class: "bg-[#003159] text-white",
+    icon: Docker,
+  },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#003159] text-white",
+    icon: Postgresql,
+  },
+  ANGULAR: {
+    name: "Angular",
+    class: "bg-[#003159] text-white",
+    icon: Angular,
+  },
+  TYPESCRIPT: {
+    name: "TypeScript",
+    class: "bg-[#003159] text-white",
+    icon: Typescript,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-[#003159] text-white",
+    icon: Html,
   },
   TAILWIND: {
-    name: "Tailwind CSS",
+    name: "Tailwind",
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
@@ -25,8 +66,7 @@ const PROJECTS = [
     link: "https://github.com/JeanAchamizo/Fast-Food",
     github: "https://github.com/JeanAchamizo/Fast-Food",
     image: "/projects/fast-food.png",
-    //tags: [TAGS.NEXT, TAGS.TAILWIND],
-    tags: [],
+    tags: [TAGS.ANGULAR, TAGS.TYPESCRIPT,TAGS.TAILWIND,TAGS.HTML],
   },  
   {
     title: "HechoEnPeru - Api",
@@ -35,8 +75,8 @@ const PROJECTS = [
     link: "https://github.com/JeanAchamizo/HechoEnPeru-Api",
     github: "https://github.com/JeanAchamizo/HechoEnPeru-Api",
     image: "/projects/svgl.webp",
-    //tags: [TAGS.NEXT, TAGS.TAILWIND],
-    tags: [],
+    tags: [TAGS.SPRING, TAGS.JAVA, TAGS.JWT, TAGS.DOCKER, TAGS.POSTGRESQL],
+    //tags: [TAGS.ANGULAR],
   },
 
 ]
@@ -51,16 +91,43 @@ const PROJECTS = [
       <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
     </div>
   </div>
-
   <div class="w-full md:w-1/2 md:max-w-lg">
     <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
       {title}
     </h3>
-  </div>  
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
 </article>
     ))
   }
 </div>
-
-
 
