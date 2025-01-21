@@ -1,0 +1,25 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "julio 2024",
+    title: "Programador",
+    company: "Digital Solutions ,  España",
+    description:
+      "Asistir en la integración de la API de Infojobs como un nuevo servicio para publicaciones de ofertas laborales dentro de una plataforma ATS, diseñada para optimizar y automatizar el ciclo de contratación de personal para las empresas.",
+    tecnologias: ["Java", "Spring Boot", "API REST", "MySQL"],
+      //link: "https://twitch.tv/jeanachamizo",
+  }
+  //Agregar más experiencias
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
